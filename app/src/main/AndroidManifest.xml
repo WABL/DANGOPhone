@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="a0.test4.homenet.io.myapplication2">
+          package="com.example.acer.androidproject01">
 
     <application
             android:allowBackup="true"

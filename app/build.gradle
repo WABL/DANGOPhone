@@ -3,6 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "24.0.3"
+
+    useLibrary 'org.apache.http.legacy'
+
     defaultConfig {
         applicationId "com.example.acer.androidproject01"
         minSdkVersion 14
@@ -17,6 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+
+
+
 }
 
 dependencies {

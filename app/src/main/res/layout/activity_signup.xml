@@ -2,14 +2,15 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
+        android:id="@+id/activity_signup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        tools:context="com.example.acer.androidproject01.MainActivity">
+        tools:context="com.example.acer.androidproject01.SignupActivity">
+
 
     <TextView
             android:id="@+id/password01"
@@ -18,24 +19,15 @@
             android:layout_alignBottom="@+id/password"
             android:text="password：" />
 
-    <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/signup"
-            android:layout_alignBottom="@+id/signup"
-            android:layout_alignLeft="@+id/acountlog"
-            android:onClick="getap"
-            android:text="登录" />
-
     <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-
-            android:layout_toRightOf="@+id/login"
-            android:text="hello_user" />
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="19dp"
+            android:layout_toRightOf="@+id/back"
+            android:text=" sign " />
 
     <TextView
             android:id="@+id/acount01"
@@ -55,17 +47,6 @@
             android:ems="10"
             android:inputType="textPostalAddress" />
 
-    <Button
-            android:id="@+id/signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/acountlog"
-            android:layout_below="@+id/password"
-            android:layout_marginRight="27dp"
-            android:layout_marginTop="56dp"
-            android:onClick="signuponclick"
-            android:text="注册" />
-
     <EditText
             android:id="@+id/password"
             android:layout_width="wrap_content"
@@ -76,14 +57,41 @@
             android:ems="10"
             android:inputType="textPassword" />
 
-    <EditText
-            android:id="@+id/sm"
+    <TextView
+            android:id="@+id/repassword01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/login"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="25dp"
+            android:layout_alignBottom="@+id/repassword"
+            android:text="repassword：" />
+
+
+    <EditText
+            android:id="@+id/repassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/acountlog"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="24dp"
             android:ems="10"
-            android:text="made by qidian" />
+            android:inputType="textPassword" />
+
+    <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/acountlog"
+            android:layout_below="@+id/repassword01"
+            android:layout_marginTop="27dp"
+            android:onClick="goback"
+            android:text="返回" />
+
+    <Button
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/back"
+            android:layout_alignBottom="@+id/back"
+            android:layout_toRightOf="@+id/textView1"
+            android:text="注册" />
 
 </RelativeLayout>

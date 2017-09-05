@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical" xmlns:android1="http://schemas.android.com/apk/res/android">
+
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+    >
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+        </TableRow>
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:gravity="center|center_horizontal|center_vertical"
+        >
+
+            <Button
+                    android1:id="@+id/pay"
+                    android1:layout_width="wrap_content"
+                    android1:layout_height="wrap_content"
+                    android1:gravity="center|center_horizontal|center_vertical"
+                    android1:onClick="gotp"
+                    android1:text="扫脸支付" />
+
+            <requestFocus />
+
+
+
+
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center|center_horizontal|center_vertical"
+        >
+
+            <Button
+                    android1:id="@+id/exit"
+                    android1:layout_width="wrap_content"
+                    android1:layout_height="wrap_content"
+                    android1:gravity="center|center_horizontal|center_vertical"
+                    android1:onClick="goback"
+                    android1:text=" 注 销 " />
+
+        </TableRow>
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

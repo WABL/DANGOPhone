@@ -82,7 +82,7 @@
             android:layout_alignLeft="@+id/acountlog"
             android:layout_below="@+id/repassword01"
             android:layout_marginTop="27dp"
-            android:onClick="goback"
+            android:onClick="goBack"
             android:text="返回" />
 
     <Button
@@ -92,6 +92,6 @@
             android:layout_alignBaseline="@+id/back"
             android:layout_alignBottom="@+id/back"
             android:layout_toRightOf="@+id/textView1"
-            android:text="注册" />
+            android:text="注册" android:onClick="goOn"/>
 
 </RelativeLayout>

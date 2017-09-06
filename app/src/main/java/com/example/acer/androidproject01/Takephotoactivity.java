@@ -1,28 +1,23 @@
 package com.example.acer.androidproject01;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import android.app.Activity;
-import android.os.Bundle;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Takephotoactivity extends AppCompatActivity implements OnClickListener {
 

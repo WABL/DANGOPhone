@@ -2,12 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.acer.androidproject01">
 
-    <uses-permission android:name="android.hardware.sensor.accelerometer"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 声明使用相机的权限： -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    ；
+    <!-- 声明使用设备相机： -->
+    <uses-feature
+            android:name="android.hardware.camera"
+            android:required="false"
+    />
+    ；
+    <!-- 如果需要让相机自动对焦，还需要声明： -->
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.hardware.sensor.accelerometer"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- 操作sd卡的权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
 
     <application
             android:allowBackup="true"
@@ -24,11 +39,11 @@
         </activity>
         <activity android:name=".IndexActivity">
         </activity>
-        <activity android:name=".Takephotoactivity">
-        </activity>
         <activity android:name=".SignupActivity">
         </activity>
         <activity android:name=".PictureupsActivity">
+        </activity>
+        <activity android:name=".TakephotoActivity">
         </activity>
     </application>
 

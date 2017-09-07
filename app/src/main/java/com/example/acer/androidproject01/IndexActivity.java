@@ -25,7 +25,7 @@ public class IndexActivity extends AppCompatActivity {
     public void gotp (View v)
     {
         Intent intent = new Intent();
-        intent.setClass(IndexActivity.this, Takephotoactivity.class);
+        intent.setClass(IndexActivity.this, TakephotoActivity.class);
         startActivity(intent);
     }
 }

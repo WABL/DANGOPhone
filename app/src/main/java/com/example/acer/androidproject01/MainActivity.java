@@ -29,10 +29,10 @@ import org.apache.http.util.EntityUtils;
 import android.*;
 
 
-import org.apache.http.client.fluent.Content;
-import org.apache.http.client.fluent.Form;
-import org.apache.http.client.fluent.Request;
-import org.apache.http.entity.ContentType;
+//import org.apache.http.client.fluent.Content;
+//import org.apache.http.client.fluent.Form;
+//import org.apache.http.client.fluent.Request;
+//import org.apache.http.entity.ContentType;
 //import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
 //import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.json.JSONObject;
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, SignupActivity.class);
+        //intent.setClass(MainActivity.this, TakephotoActivity.class);//测试用转跳相机
         startActivity(intent);
     }
 

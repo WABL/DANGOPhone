@@ -1,31 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:gravity="center_horizontal"
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:gravity="center_horizontal"
 >
 
-    <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="拍照获取缩略图" />
 
-    <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:text="拍照获取原图" />
-
-    <ImageView
-            android:id="@+id/imageView1"
+    <TextView
+            android:id="@+id/information"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="50dp" android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="请保持相机竖直并正面对准轮廓拍照"
+            android:textColor="#0000c6"
     />
-    <!--android:src="@drawable/ic_launcher" -->
+
+    <TextView
+            android:id="@+id/information2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="50dp" android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="#FF0000"
+            android:text="请保持相机竖直并正面对准轮廓拍照"/>
+
+    <!--<EditText-->
+    <!--android:id="@+id/information2"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentTop="true" android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_marginRight="50dp" android:layout_marginLeft="50dp"-->
+    <!--android:layout_marginTop="25dp"-->
+    <!--android:gravity="center_horizontal"-->
+
+    <!--android:text="请保持相机竖直并正面对准轮廓拍照"/>-->
+
+    <Button
+            android:id="@+id/button_capture"
+            android:text="Capture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" android:layout_marginRight="117dp" android:layout_marginLeft="117dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:onClick="takep"
+            android:gravity="center_horizontal"
+    />
+    <FrameLayout
+            android:id="@+id/camera_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center_horizontal"
+    />
+
+    <ImageView
+            android:id="@+id/image_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center_horizontal"
+            android:src="@drawable/image_3"
+            android:theme="@android:style/Theme.Translucent"
+    ></ImageView>
 
 
+</RelativeLayout>
 
-</LinearLayout>

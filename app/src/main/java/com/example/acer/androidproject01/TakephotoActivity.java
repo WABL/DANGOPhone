@@ -374,7 +374,7 @@ public class TakephotoActivity extends AppCompatActivity {
                     +File.separator
                     +"AppTest"
                     + File.separator
-                    +"PicTest_"+System.currentTimeMillis()+".jpg";
+                    +"Pictest.jpg";
             File file=new File(fileName);
             if(!file.getParentFile().exists()){
                 file.getParentFile().mkdir();//创建文件夹

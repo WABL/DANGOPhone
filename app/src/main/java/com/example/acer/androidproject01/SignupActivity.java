@@ -2,6 +2,7 @@ package com.example.acer.androidproject01;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -94,14 +95,17 @@ public class SignupActivity extends AppCompatActivity {
                             } else
                             {
                                 System.out.println("wrong");
+                                mistakeDialog();
                             }
 
                         }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+                    mistakeDialog();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    mistakeDialog();
                 }
 
             }
@@ -112,8 +116,23 @@ public class SignupActivity extends AppCompatActivity {
         if(password.equals(repassword)) {
             return true;
         }
-        else
+        else {
+            new AlertDialog.Builder(SignupActivity.this)
+                    .setTitle("提示")
+                    .setMessage("两次密码不一致")
+                    .setPositiveButton("知道了",null)
+                    .show();
             return false;
+        }
+
+    }
+
+    public void mistakeDialog() {
+        new AlertDialog.Builder(SignupActivity.this)
+                .setTitle("Message")
+                .setMessage("some mistakes")
+                .setPositiveButton("I know",null)
+                .show();
     }
 
 }

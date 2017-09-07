@@ -13,85 +13,78 @@
 
 
     <TextView
-            android:id="@+id/password01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/password"
-            android:text="password：" />
-
-    <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="29dp"
-            android:layout_marginTop="19dp"
-            android:layout_toRightOf="@+id/back"
-            android:text=" sign " />
-
-    <TextView
-            android:id="@+id/acount01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/acountlog"
-            android:layout_alignLeft="@+id/password01"
-            android:text="acount：" />
-
-    <EditText
-            android:id="@+id/acountlog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
-            android:layout_marginTop="62dp"
-            android:layout_toRightOf="@+id/password01"
-            android:ems="10"
-            android:inputType="textPostalAddress" />
-
-    <EditText
-            android:id="@+id/password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/acountlog"
-            android:layout_below="@+id/acountlog"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:inputType="textPassword" />
-
-    <TextView
-            android:id="@+id/repassword01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/repassword"
-            android:text="repassword：" />
-
-
-    <EditText
-            android:id="@+id/repassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/acountlog"
-            android:layout_below="@+id/password"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:inputType="textPassword" />
-
+            android:layout_marginTop="20dp"
+            android:text=" sign " android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
     <Button
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/acountlog"
-            android:layout_below="@+id/repassword01"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="28dp"
             android:onClick="goBack"
-            android:text="返回" />
-
+            android:text="返回"
+            android:layout_below="@+id/repassword" android:layout_toRightOf="@+id/acount01"
+            android:layout_toEndOf="@+id/acount01"/>
     <Button
             android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/back"
-            android:layout_alignBottom="@+id/back"
-            android:layout_toRightOf="@+id/textView1"
-            android:text="注册" android:onClick="goOn"/>
+            android:text="注册" android:onClick="goOn"
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_alignBaseline="@+id/back"
+            android:layout_alignBottom="@+id/back" android:layout_toRightOf="@+id/textView1"
+            android:layout_toEndOf="@+id/textView1"/>
+    <TextView
+            android:id="@+id/acount01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="acount："
+            android:layout_marginTop="44dp" android:layout_below="@+id/textView1" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+    <TextView
+            android:id="@+id/password01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="password："
+            android:layout_marginTop="19dp"
+            android:layout_below="@+id/acountlog" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+    <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:layout_below="@+id/password01" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+    <TextView
+            android:id="@+id/repassword01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="repassword："
+            android:layout_marginTop="18dp" android:layout_below="@+id/password" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+    <EditText
+            android:id="@+id/repassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:layout_below="@+id/repassword01" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+    <EditText
+            android:id="@+id/acountlog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:layout_below="@+id/acount01" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

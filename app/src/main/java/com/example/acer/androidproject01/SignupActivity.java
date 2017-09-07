@@ -61,7 +61,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 RequestBody body = RequestBody.create(JSON, String.valueOf(jsonObject));
                 Request request = new Request.Builder()
-                        .url("http://10.63.206.144:8080/register")
+                        .url("http://10.63.208.86:8080/register")
                         .addHeader("Accept", "application/json")
                         .addHeader("Content-Type", "application/json, charset=utf-8")
                         .addHeader("Connection", "close")

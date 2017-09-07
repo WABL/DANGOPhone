@@ -1,23 +1,29 @@
 package com.example.acer.androidproject01;
 
+import android.os.*;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
-import android.os.StrictMode;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.*;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -35,6 +41,7 @@ import android.*;
 //import org.apache.http.entity.ContentType;
 //import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
 //import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
+import org.json.JSONException;
 import org.json.JSONObject;
 //import org.junit.Test;
 
@@ -78,175 +85,115 @@ public class MainActivity extends AppCompatActivity {
 //		StrictMode.setThreadPolicy(policy);
 
         EditText e = (EditText) findViewById (R.id.acountlog);
-        String acount = e.getText().toString();
+        String account = e.getText().toString();
         e = (EditText) findViewById (R.id.password);
         String password = e.getText().toString();
-        System.out.println(acount+" "+password);
+        System.out.println(account+" "+password);
 
-        aandp ="http://10.0.2.2:8080/login?username="+acount+"&password="+password;
+        //aandp ="http://10.0.2.2:8080/login?username="+account+"&password="+password;
 
-        sendtest();
+        //sendtest();
+        sendLogInfo(account, password);
 
-    }
-
-    //http://localhost:8080/login?username=user&password=USER
-
-    public void sendtest()
-    {
-        EditText etest = (EditText) findViewById (R.id.sm);
-        etest.setText("log in ");
-        //sendget(etest);
-
-
-        sendRequestWithHttpClient(etest);
-
-    }
-
-    private void sendRequestWithHttpClient( EditText etest ) {
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-
-
-
-                //用HttpClient发送请求，分为五步
-                //第一步：创建HttpClient对象
-                HttpClient httpCient = new DefaultHttpClient();
-                //第二步：创建代表请求的对象,参数是访问的服务器地址
-                String uriAPI = aandp;
-
-                //"http://www.baidu.com";
-
-                HttpGet httpGet = new HttpGet(uriAPI);
-
-                try {
-                    //第三步：执行请求，获取服务器发还的相应对象
-                    HttpResponse httpResponse = httpCient.execute(httpGet);
-                    //第四步：检查相应的状态是否正常：检查状态码的值是200表示正常
-                    if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                        //第五步：从相应对象当中取出数据，放到entity当中
-                        HttpEntity entity = httpResponse.getEntity();
-                        String response = EntityUtils.toString(entity,"utf-8");//将entity当中的数据转换为字符串
-
-                        //在子线程中将Message对象发出去
-                        Message message = new Message();
-                        //    message.what = SHOW_RESPONSE;
-                        message.obj = response.toString();
-                        //    handler.sendMessage(message);
-                        System.out.println(message+"233");
-                        //   showalertdialog("看看");
-                        System.out.println(message.toString()+"666");
-                        // etest.setText(message.toString());
-
-                        //if(message.toString().equals("YES"))
-
-                        if( message.toString().indexOf("YES")>=0)
-                        {
-                            xx="登录成功";
-                            Intent intent = new Intent();
-                            intent.setClass(MainActivity.this, IndexActivity.class);
-                            startActivity(intent);
-                            System.out.println(message+"LOGIN SUCSESS");
-
-                        }
-                        else
-                        {
-                            xx="你输入的账号密码错误或不存在，请重新输入；";
-                            //	showalertdialog("看看");
-                        	/*new  AlertDialog.Builder(MainActivity.this)
-                        	                .setTitle("登录失败" )
-                        	                .setMessage("你输入的账号密码错误或不存在，请重新输入；")
-                        	                .setPositiveButton("确定" ,  null)
-                        	                .show();  */
-//                        	EditText etest = (EditText) findViewById (R.id.sm);
-//                        	etest.setText("你输入的账号密码错误或不存在，请重新输入；");
-//                        	AlertDialog.Builder builder = new Builder(MainActivity.this);//getBaseContext());
-//                        	builder.setTitle("登录失败");
-//                        	builder.setMessage("你输入的账号密码错误或不存在，请重新输入；");
-//                        	builder.setPositiveButton("确定", null);
-//                        	AlertDialog dialog = builder.create();	//创建对话框
-//                        	dialog.setCanceledOnTouchOutside(true);	//设置弹出框失去焦点是否隐藏,即点击屏蔽其它地方是否隐藏
-//                        	dialog.show();
-
-//                        	AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(MainActivity.this);
-//                        	AlertDialog alertDialog = alertDialogBuilder.create();
-//                            alertDialog.show();//将dialog显示出来
-
-                            //new AlertDialog.Builder(getParent()).create().show();
-
-                            System.out.println(message+"LOGIN FAILS");
-
-                        }
-                        f=0;
-                    }
-
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        }).start();//这个start()方法不要忘记了
-        //EditText etest = (EditText) findViewById (R.id.sm);
-        while(f==1){};
-        f=1;
-        etest.setText(xx);
         showalertdialog(xx);
 
     }
 
-    public void sendget(EditText etest)
-    {
-        StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        //创建子线程才能访问网络；
 
-		/*URL可以随意改*/
-        String uriAPI =
-                "http://wthrcdn.etouch.cn/weather_mini?city=北京";
-        //"http://www.baidu.com";
-        //"http://10.0.2.2:8080/demo";
-        //"http://169.254.16.196:8080/demo";
-        /*建立HTTP Get对象*/
-        HttpClient httpCient = new DefaultHttpClient();
-        HttpGet httpRequest = new HttpGet(uriAPI);
-        try
-        {
-          /*发送请求并等待响应*/
-            HttpResponse httpResponse = new DefaultHttpClient().execute(httpRequest);
-          /*若状态码为200 ok*/
-            if(httpResponse.getStatusLine().getStatusCode() == 200)
-            {
-            /*读*/
-                String strResult = httpResponse.getEntity().toString();
-            /*去没有用的字符*/
-                //strResult = eregi_replace("(\r\n|\r|\n|\n\r)","",strResult);
-                etest.setText(strResult);
-                System.out.println(strResult+"233");
+
+    private void sendLogInfo(final String account, final String password) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("connect");
+                Map<String, String> map = new HashMap<>();
+                map.put("username", account);
+                map.put("password", password);
+                JSONObject jsonObject = new JSONObject(map);
+                final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+                RequestBody body = RequestBody.create(JSON, String.valueOf(jsonObject));
+                Request request = new Request.Builder()
+                        .url("http://10.63.208.86:8080/login")
+                        .addHeader("Accept", "application/json")
+                        .addHeader("Content-Type", "application/json, charset=utf-8")
+                        .addHeader("Connection", "close")
+                        .post(body)
+                        .build();
+
+                OkHttpClient client = new OkHttpClient();
+                OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                builder.connectTimeout(30, TimeUnit.SECONDS);
+                builder.readTimeout(30, TimeUnit.SECONDS);
+                builder.writeTimeout(30, TimeUnit.SECONDS);
+                client = builder.build();
+                try {
+
+                    Response response = client.newCall(request).execute();
+                    if(response.isSuccessful()) {
+                        final String result = response.body().string();
+                        if(!TextUtils.isEmpty(result)) {
+                            userx u = new userx();
+                            JSONObject obj = new JSONObject(result);
+                            u.access_token = obj.getJSONObject("auth").getString("access_token");
+                            u.needface = obj.getJSONObject("user").getBoolean("needface");
+                            System.out.println("token:" +  u.access_token + ", needface:" + u.needface);
+
+                            if(u.access_token!=null) {
+                                xx="登录成功";
+                                System.out.println("jump to TakephotoActivity");
+                                u.initData();
+                                if (u.needface)
+                                {
+                                    Intent intent = new Intent();
+                                    intent.setClass(MainActivity.this, TakephotoActivity.class);
+                                    startActivity(intent);
+                                   // showalertdialog("您尚未上传初始照片，请先拍摄初始照片 ");
+                                    xx="您尚未上传初始照片，请先拍摄初始照片 ";
+                                }
+                                else
+                                    {
+                                        Intent intent = new Intent();
+                                       intent.setClass(MainActivity.this, IndexActivity.class);
+                                        startActivity(intent);
+                                        //showalertdialog("登录成功 ");
+
+                                    }
+
+                            } else
+                            {
+                                xx="你输入的账号密码错误或不存在，请重新输入；";
+                                System.out.println("wrong");
+
+                            }
+
+
+
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                f=0;
             }
-            else
-            {
-                etest.setText("Error Response: "+httpResponse.getStatusLine().toString());
-                System.out.println("erro;;");
-            }
-        }
-        catch (ClientProtocolException e)
-        {
-            etest.setText(e.getMessage().toString());
-            e.printStackTrace();
-        }
-        catch (IOException e)
-        {
-            etest.setText(e.getMessage().toString());
-            e.printStackTrace();
-        }
-        catch (Exception e)
-        {
-            // etest.setText(e.getMessage().toString());
-            e.printStackTrace();
-        }
+        }).start();
+
+       while(f==1)
+       {
+          // System.out.println("in the while , f= "+f);
+       };
+        f=1;
+
+        EditText etest = (EditText) findViewById (R.id.sm);
+        etest.setText(xx);
+
+
     }
+
+
+
 
     public void showalertdialog(String message){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -272,4 +219,111 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+
+    class userx
+    {
+        String user;
+        String auth;
+        String username;
+        String password;
+        boolean needface;
+        String access_token;
+        String refresh_token;
+
+        private void initData() {
+            String filePath= Environment.getExternalStorageDirectory().toString()
+                    + File.separator
+                    +"AppTest"
+                    + File.separator;
+
+            String fileName = "userx.txt";
+
+            deleteFile(filePath+fileName);
+
+            writeTxtToFile("access_token:"+userx.this.access_token, filePath, fileName);
+        }
+
+        // 将字符串写入到文本文件中
+        public void writeTxtToFile(String strcontent, String filePath, String fileName) {
+            //生成文件夹之后，再生成文件，不然会出错
+            makeFilePath(filePath, fileName);
+
+            String strFilePath = filePath+fileName;
+            // 每次写入时，都换行写
+            String strContent = strcontent + "\r\n";
+            try {
+                File file = new File(strFilePath);
+                if (!file.exists()) {
+                    Log.d("TestFile", "Create the file:" + strFilePath);
+                    file.getParentFile().mkdirs();
+                    file.createNewFile();
+                }
+                RandomAccessFile raf = new RandomAccessFile(file, "rwd");
+                raf.seek(file.length());
+                raf.write(strContent.getBytes());
+                raf.close();
+            } catch (Exception e) {
+                Log.e("TestFile", "Error on write File:" + e);
+            }
+        }
+
+        public boolean deleteFile(String filePath) {
+            File file = new File(filePath);
+            if (file.isFile() && file.exists()) {
+                return file.delete();
+            }
+            return false;
+        }
+
+        // 生成文件
+        public File makeFilePath(String filePath, String fileName) {
+            File file = null;
+            makeRootDirectory(filePath);
+            try {
+                file = new File(filePath + fileName);
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return file;
+        }
+
+        // 生成文件夹
+        public void makeRootDirectory(String filePath) {
+            File file = null;
+            try {
+                file = new File(filePath);
+                if (!file.exists()) {
+                    file.mkdir();
+                }
+            } catch (Exception e) {
+                Log.i("error:", e + "");
+            }
+        }
+
+//        public  void writefilex()
+//        {
+//            String fileName= Environment.getExternalStorageDirectory().toString()
+//                    + File.separator
+//                    +"AppTest"
+//                    + File.separator
+//                    +"userx.txt";
+//            File file=new File(fileName);
+//            if(!file.getParentFile().exists()){
+//                file.getParentFile().mkdir();//创建文件夹
+//                file.createNewFile();
+//            }
+//            RandomAccessFile raf = new RandomAccessFile(file, "rwd");
+//            raf.seek(file.length());
+//            raf.write(userx.this.access_token.getBytes());
+//            raf.close();
+//        }
+    }
+
+
+
 }
+
+

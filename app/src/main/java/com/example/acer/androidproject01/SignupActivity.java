@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 import okhttp3.*;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -41,13 +43,24 @@ public class SignupActivity extends AppCompatActivity {
         e = (EditText) findViewById(R.id.repassword);
         String repassword = e.getText().toString();
 
-        boolean pass = validation(password, repassword);
+        if (!(isLength(password)&&isLength(account)))
+        {
+            Toast.makeText(SignupActivity.this, "账号密码长度小于6位，请重新输入", Toast.LENGTH_LONG).show();
+        }
+        boolean pass = validation(password, repassword)&&isLength(password)&&isLength(account);
 
         if(pass) {
             sendRegisterInfo(account, password);
         }
 
     }
+
+
+    public static boolean isLength(String str) {
+        Pattern pattern = Pattern.compile(".{6,20}");
+        return pattern.matcher(str).matches();
+    }
+
 
     private void sendRegisterInfo(final String account, final String password) {
         new Thread(new Runnable() {

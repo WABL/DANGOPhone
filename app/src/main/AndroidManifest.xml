@@ -45,6 +45,8 @@
         </activity>
         <activity android:name=".SuccessActivity">
         </activity>
+        <activity android:name=".FailActivity">
+        </activity>
     </application>
 
 </manifest>

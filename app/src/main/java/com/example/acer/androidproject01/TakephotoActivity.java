@@ -2,6 +2,7 @@ package com.example.acer.androidproject01;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -200,6 +201,12 @@ public class TakephotoActivity extends AppCompatActivity {
 
         public void surfaceDestroyed(SurfaceHolder holder) {
             // empty. Take care of releasing the Camera preview in your activity.
+            //释放相机
+            if (mCamera != null) {
+                mCamera .stopPreview();
+                mCamera .release();
+                mCamera = null;
+            }
         }
 
         public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
@@ -406,7 +413,38 @@ public class TakephotoActivity extends AppCompatActivity {
             Toast.makeText(TakephotoActivity.this, "拍照失败！请将手机竖直拿起，并在角度接近0时拍摄；", Toast.LENGTH_LONG).show();
         }
         else
+            {
             mCamera.takePicture(null, null, mPicture);
+            /*获取Intent中的Bundle对象*/
+                Bundle bundle = this.getIntent().getExtras();
+
+        /*获取Bundle中的数据，注意类型和key*/
+               // String name = bundle.getString("Name");
+                boolean needface = bundle.getBoolean("needface");
+                if (needface)
+                {
+                    Intent intent = new Intent();
+                    intent.setClass(TakephotoActivity.this, IndexActivity.class);
+                    startActivity(intent);
+                }
+                else
+                    {
+                        if (Data.getA()=="0")
+                        {
+                            Data.setA("1");
+                            Intent intent = new Intent();
+                            intent.setClass(TakephotoActivity.this, SuccessActivity.class);
+                            startActivity(intent);
+                        }
+                        else
+                            {
+                                Data.setA("0");
+                                Intent intent = new Intent();
+                                intent.setClass(TakephotoActivity.this, FailActivity.class);
+                                startActivity(intent);
+                            }
+                    }
+            }
     }
 
     ;

@@ -149,6 +149,16 @@ public class MainActivity extends AppCompatActivity {
                                 {
                                     Intent intent = new Intent();
                                     intent.setClass(MainActivity.this, TakephotoActivity.class);
+
+                                    /* 通过Bundle对象存储需要传递的数据 */
+                                    Bundle bundle = new Bundle();
+/*字符、字符串、布尔、字节数组、浮点数等等，都可以传*/
+                                   // bundle.putString("Name", "feng88724");
+                                    bundle.putBoolean("needface", true);
+
+/*把bundle对象assign给Intent*/
+                                    intent.putExtras(bundle);
+
                                     startActivity(intent);
                                    // showalertdialog("您尚未上传初始照片，请先拍摄初始照片 ");
                                     xx="您尚未上传初始照片，请先拍摄初始照片 ";
@@ -257,6 +267,27 @@ public class MainActivity extends AppCompatActivity {
             writeTxtToFile(" "+readtest, filePath, fileName+"copy.txt");
         }
 
+        private void readData() {
+            String filePath= Environment.getExternalStorageDirectory().toString()
+                    + File.separator
+                    +"AppTest"
+                    + File.separator;
+
+            String fileName = "userx.txt";
+            String readtest = "userx.txt";
+            try
+            {
+                readtest=readFile(filePath+fileName);
+            }catch(Exception e){
+                System.out.println("wrong:read file error01");
+                e.printStackTrace();
+
+            }
+
+            userx.this.access_token=readtest;
+            System.out.println("readtest= "+ readtest );
+
+        }
 
 
         public String readFile(String fileName) throws IOException{
@@ -357,6 +388,7 @@ public class MainActivity extends AppCompatActivity {
 //            raf.close();
 //        }
     }
+
 
 
 

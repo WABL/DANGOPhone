@@ -17,6 +17,7 @@ import android.widget.EditText;
 
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
@@ -30,6 +31,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EncodingUtils;
 import org.apache.http.util.EntityUtils;
 
 import android.*;
@@ -237,10 +239,44 @@ public class MainActivity extends AppCompatActivity {
                     + File.separator;
 
             String fileName = "userx.txt";
+            String readtest = "userx.txt";
+            try
+            {
+                readtest=readFile(filePath+fileName);
+            }catch(Exception e){
+                System.out.println("wrong:read file error01");
+                e.printStackTrace();
+
+            }
 
             deleteFile(filePath+fileName);
+            deleteFile(filePath+fileName+"copy.txt");
+
 
             writeTxtToFile("access_token:"+userx.this.access_token, filePath, fileName);
+            writeTxtToFile(" "+readtest, filePath, fileName+"copy.txt");
+        }
+
+
+
+        public String readFile(String fileName) throws IOException{
+            String res="";
+            try{
+               // FileInputStream fin = openFileInput(fileName);
+                FileInputStream fin = new FileInputStream(fileName);
+                int length = fin.available();
+                byte [] buffer = new byte[length];
+                fin.read(buffer);
+                res = EncodingUtils.getString(buffer, "gbk");
+                System.out.println("res:"+res);
+                fin.close();
+            }
+            catch(Exception e){
+                System.out.println("wrong:read file error02");
+                e.printStackTrace();
+            }
+            return res;
+
         }
 
         // 将字符串写入到文本文件中

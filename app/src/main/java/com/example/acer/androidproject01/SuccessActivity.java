@@ -15,6 +15,7 @@ public class SuccessActivity extends AppCompatActivity {
 
     public void payback (View v)
     {
+
         Intent intent = new Intent();
         intent.setClass(SuccessActivity.this, IndexActivity.class);
         startActivity(intent);

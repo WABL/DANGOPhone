@@ -1,9 +1,9 @@
 package com.example.acer.androidproject01;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class PictureupsActivity extends AppCompatActivity {
+public class PictureupsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

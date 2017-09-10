@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     public void signuponclick (View v)
     {
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this, FinishSignup.class);
+        intent.setClass(MainActivity.this, IndexActivity.class);
         //intent.setClass(MainActivity.this, TakephotoActivity.class);//测试用转跳相机
         startActivity(intent);
     }

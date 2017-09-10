@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center"
-              android:orientation="vertical" xmlns:android1="http://schemas.android.com/apk/res/android">
+              android:orientation="vertical" xmlns:android1="http://schemas.android.com/apk/res/android"
+              android:weightSum="1">
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="243dp"
+    >
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_weight="1"
@@ -21,12 +23,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
+                <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        app:srcCompat="@mipmap/wallet"
+                        android:id="@+id/imageButton"/>
+                <TextView
+                        android:text="付款"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/textView12"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
+                <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        app:srcCompat="@mipmap/card"
+                        android:id="@+id/imageButton2"/>
+                <TextView
+                        android:text="银行"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/textView13"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -42,12 +66,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
+                <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        app:srcCompat="@mipmap/chat"
+                        android:id="@+id/imageButton3"/>
+                <TextView
+                        android:text="朋友"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/textView14"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
+                <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        app:srcCompat="@mipmap/logout"
+                        android:id="@+id/imageButton4"/>
+                <TextView
+                        android:text="注销"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/textView15"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -55,8 +101,11 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="197dp"
+            android:layout_weight="0.80">
+
+
+
     </LinearLayout>
 
 </LinearLayout>

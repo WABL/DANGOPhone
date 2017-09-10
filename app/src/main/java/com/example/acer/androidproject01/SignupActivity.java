@@ -8,22 +8,30 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.githang.stepview.StepView;
 import okhttp3.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity {
+    private StepView mStepView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        mStepView = (StepView) findViewById(R.id.step_view);
+        List<String> steps = Arrays.asList(new String[]{"注册账号", "上传照片", "登录跳转"});
+        mStepView.setSteps(steps);
     }
 
     public void goBack (View v) {

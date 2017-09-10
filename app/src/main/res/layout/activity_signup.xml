@@ -18,23 +18,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text=" sign " android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
-    <Button
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:onClick="goBack"
-            android:text="返回"
-            android:layout_below="@+id/repassword" android:layout_toRightOf="@+id/acount01"
-            android:layout_toEndOf="@+id/acount01"/>
-    <Button
-            android:id="@+id/signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="注册" android:onClick="goOn"
-            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:layout_alignBaseline="@+id/back"
-            android:layout_alignBottom="@+id/back" android:layout_toRightOf="@+id/textView1"
-            android:layout_toEndOf="@+id/textView1"/>
     <TextView
             android:id="@+id/acount01"
             android:layout_width="wrap_content"
@@ -86,4 +69,32 @@
             android:layout_alignParentStart="true" android:layout_marginTop="12dp"
             android:layout_alignParentRight="true" android:layout_alignParentEnd="true" android:elevation="0dp"/>
 
+    <com.githang.stepview.StepView
+            android:id="@+id/step_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"/>
+
+    <Button
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册" android:onClick="goOn"
+            android:background="#A5DEE4"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/repassword" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+    <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="goBack"
+            android:text="返回"
+            android:background="#D6D7D7"
+            android:layout_below="@+id/signup" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
 </RelativeLayout>

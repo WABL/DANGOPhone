@@ -1,26 +1,24 @@
 package com.example.acer.androidproject01;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
+import android.os.Bundle;
 import com.githang.stepview.StepView;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PictureupsActivity extends AppCompatActivity {
-    private ImageView img;
+public class FinishSignup extends AppCompatActivity {
     private StepView mStepView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pictureups);
+        setContentView(R.layout.activity_finish_signup);
 
         mStepView = (StepView) findViewById(R.id.step_view);
         List<String> steps = Arrays.asList(new String[]{"注册账号", "上传照片", "注册完成"});
         mStepView.setSteps(steps);
-        int nextStep = mStepView.getCurrentStep() + 1;
+        int nextStep = mStepView.getCurrentStep() + 2;
         mStepView.selectedStep(nextStep);
     }
 }

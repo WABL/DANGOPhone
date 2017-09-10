@@ -24,7 +24,6 @@
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Face Pay"
-
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -34,25 +33,35 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".IndexActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".IndexActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".SignupActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".SignupActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".PictureupsActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".PictureupsActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".TakephotoActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".TakephotoActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".PayActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".PayActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".SuccessActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".SuccessActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".FailActivity"
+        <activity
+                android:name=".FailActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".FinishSignup"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>

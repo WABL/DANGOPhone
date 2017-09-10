@@ -5,64 +5,59 @@
               android:gravity="center"
               android:orientation="vertical" xmlns:android1="http://schemas.android.com/apk/res/android">
 
-    <TableLayout
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-    >
-
-        <TableRow
+            android:layout_weight="1">
+        <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                >
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+            </LinearLayout>
 
-        </TableRow>
-        <TableRow
+        </LinearLayout>
+
+        <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="2"
-                android:gravity="center|center_horizontal|center_vertical"
-        >
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_height="match_parent">
 
-            <Button
-                    android1:id="@+id/pay"
-                    android1:layout_width="wrap_content"
-                    android1:layout_height="wrap_content"
-                    android1:gravity="center|center_horizontal|center_vertical"
-                    android1:onClick="gotp"
-                    android1:text="扫脸支付" />
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+            </LinearLayout>
 
-            <requestFocus />
-
-
-
-
-        </TableRow>
-
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center|center_horizontal|center_vertical"
-        >
-
-            <Button
-                    android1:id="@+id/exit"
-                    android1:layout_width="wrap_content"
-                    android1:layout_height="wrap_content"
-                    android1:gravity="center|center_horizontal|center_vertical"
-                    android1:onClick="goback"
-                    android1:text=" 注 销 " />
-
-        </TableRow>
-
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="5">
-
-        </TableRow>
-
-    </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+    </LinearLayout>
 
 </LinearLayout>
+

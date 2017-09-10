@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         mStepView = (StepView) findViewById(R.id.step_view);
-        List<String> steps = Arrays.asList(new String[]{"注册账号", "上传照片", "登录跳转"});
+        List<String> steps = Arrays.asList(new String[]{"注册账号", "上传照片", "注册完成"});
         mStepView.setSteps(steps);
     }
 

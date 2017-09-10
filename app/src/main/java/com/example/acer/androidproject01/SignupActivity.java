@@ -1,9 +1,9 @@
 package com.example.acer.androidproject01;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
-public class SignupActivity extends Activity {
+public class SignupActivity extends AppCompatActivity {
     private StepView mStepView;
 
     @Override

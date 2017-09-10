@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.hardware.*;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -24,7 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
 
-public class TakephotoActivity extends Activity {
+public class TakephotoActivity extends AppCompatActivity {
 
 
     private Camera mCamera;

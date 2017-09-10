@@ -34,19 +34,26 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".IndexActivity">
+        <activity android:name=".IndexActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".SignupActivity">
+        <activity android:name=".SignupActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".PictureupsActivity">
+        <activity android:name=".PictureupsActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".TakephotoActivity">
+        <activity android:name=".TakephotoActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".PayActivity">
+        <activity android:name=".PayActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".SuccessActivity">
+        <activity android:name=".SuccessActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".FailActivity">
+        <activity android:name=".FailActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 

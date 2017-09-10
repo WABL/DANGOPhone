@@ -1,20 +1,19 @@
 package com.example.acer.androidproject01;
 
-import android.os.*;
-import android.support.v7.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
+import okhttp3.*;
+import org.apache.http.util.EncodingUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,27 +23,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.*;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EncodingUtils;
-import org.apache.http.util.EntityUtils;
-
-import android.*;
-
-
 //import org.apache.http.client.fluent.Content;
 //import org.apache.http.client.fluent.Form;
 //import org.apache.http.client.fluent.Request;
 //import org.apache.http.entity.ContentType;
 //import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
 //import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
-import org.json.JSONException;
-import org.json.JSONObject;
 //import org.junit.Test;
 
 
@@ -65,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     public void signuponclick (View v)
     {
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this, SignupActivity.class);
+        intent.setClass(MainActivity.this, PictureupsActivity.class);
         //intent.setClass(MainActivity.this, TakephotoActivity.class);//测试用转跳相机
         startActivity(intent);
     }
@@ -198,8 +182,8 @@ public class MainActivity extends AppCompatActivity {
        };
         f=1;
 
-        EditText etest = (EditText) findViewById (R.id.sm);
-        etest.setText(xx);
+//        EditText etest = (EditText) findViewById (R.id.sm);
+//        etest.setText(xx);
 
 
     }

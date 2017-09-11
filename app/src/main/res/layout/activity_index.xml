@@ -28,12 +28,14 @@
                         android:layout_height="wrap_content"
                         android:elevation="10dp"
                         app:srcCompat="@mipmap/wallet"
-                        android:id="@+id/imageButton"/>
+                        android:id="@+id/imageButton" android:onClick="gotp"/>
                 <TextView
                         android:text="付款"
                         android:gravity="center"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView12"/>
+                        android:layout_height="wrap_content" android:id="@+id/textView12"
+                        android1:onClick="gotp"
+                />
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
@@ -88,12 +90,15 @@
                         android:layout_height="wrap_content"
                         android:elevation="10dp"
                         app:srcCompat="@mipmap/logout"
-                        android:id="@+id/imageButton4"/>
+                        android:id="@+id/imageButton4" android:onClick="goback"/>
                 <TextView
                         android:text="注销"
                         android:gravity="center"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView15"/>
+                        android:layout_height="wrap_content" android:id="@+id/textView15"
+                        android1:onClick="goback"
+
+                />
             </LinearLayout>
 
         </LinearLayout>

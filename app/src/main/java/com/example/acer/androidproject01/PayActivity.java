@@ -29,4 +29,11 @@ public class PayActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+    public void back (View v)
+    {
+        Intent intent = new Intent();
+        intent.setClass(PayActivity.this, IndexActivity.class);
+
+        startActivity(intent);
+    }
 }

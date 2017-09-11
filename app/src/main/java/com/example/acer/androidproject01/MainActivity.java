@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     public void signuponclick (View v)
     {
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this, IndexActivity.class);
+        intent.setClass(MainActivity.this, SignupActivity.class);
         //intent.setClass(MainActivity.this, TakephotoActivity.class);//测试用转跳相机
         startActivity(intent);
     }
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
                 RequestBody body = RequestBody.create(JSON, String.valueOf(jsonObject));
                 Request request = new Request.Builder()
-                        .url("http://10.63.208.86:8080/login")
+                        .url("http://10.63.219.90:8080/login")
                         .addHeader("Accept", "application/json")
                         .addHeader("Content-Type", "application/json, charset=utf-8")
                         .addHeader("Connection", "close")

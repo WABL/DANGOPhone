@@ -60,7 +60,9 @@
             android:layout_height="wrap_content" android:layout_below="@+id/paymoney"
             android:layout_marginTop="25dp" android:id="@+id/button" android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:onClick="pay"
+    />
     <Button
             android:text="返回"
             android:layout_width="wrap_content"
@@ -69,5 +71,7 @@
             android:layout_height="wrap_content" android:layout_below="@+id/button"
             android:layout_marginTop="8dp" android:id="@+id/button2" android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:onClick="back"
+    />
 </RelativeLayout>

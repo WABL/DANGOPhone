@@ -1,7 +1,9 @@
 package com.example.acer.androidproject01;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import com.githang.stepview.StepView;
 
 import java.util.Arrays;
@@ -20,5 +22,13 @@ public class FinishSignup extends AppCompatActivity {
         mStepView.setSteps(steps);
         int nextStep = mStepView.getCurrentStep() + 2;
         mStepView.selectedStep(nextStep);
+    }
+
+    public void gotomain (View v)
+    {
+
+        Intent intent = new Intent();
+        intent.setClass(FinishSignup.this, MainActivity.class);
+        startActivity(intent);
     }
 }

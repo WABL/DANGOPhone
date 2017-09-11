@@ -415,11 +415,32 @@ public class TakephotoActivity extends AppCompatActivity {
         /*获取Bundle中的数据，注意类型和key*/
                // String name = bundle.getString("Name");
                 boolean needface = bundle.getBoolean("needface");
+                userx ust =new userx();
+                ust.readData();
+                needface=ust.needface;
+                System.out.print("needface in tp = "+needface);
                 if (needface)
                 {
+                   // userx.usernow.needface=false;
+
+
+                    ust.needface=false;
+                    ust.initData();
+                    if (ust.signups=="false")
+                    {
+                        ust.signups="true";
+                       // ust.initData();
+
+                        Intent intent = new Intent();
+                        intent.setClass(TakephotoActivity.this, FinishSignup.class);
+                        startActivity(intent);
+                    }
+                    else
+                    {
                     Intent intent = new Intent();
                     intent.setClass(TakephotoActivity.this, IndexActivity.class);
                     startActivity(intent);
+                    }
                 }
                 else
                     {

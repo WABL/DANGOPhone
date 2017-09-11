@@ -21,6 +21,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
+//import static com.example.acer.androidproject01.Data.usernow;
+
 public class SignupActivity extends AppCompatActivity {
     private StepView mStepView;
 
@@ -109,8 +111,18 @@ public class SignupActivity extends AppCompatActivity {
 
                             if(success) {
                                 System.out.println("jump to Takephotoactivity");
+
+//                                Data.usernow.access_token=token;
+//                                Data.usernow.needface=true;
+                                userx us=new userx();
+                                us.needface=true;
+                                us.access_token=token;
+                                us.initData();
+
                                 Intent intent = new Intent();
-                                intent.setClass(SignupActivity.this, MainActivity.class);
+                                intent.setClass(SignupActivity.this, PictureupsActivity.class);
+
+
                                 startActivity(intent);
 
                             } else

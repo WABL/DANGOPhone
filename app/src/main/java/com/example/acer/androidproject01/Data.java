@@ -5,6 +5,7 @@ package com.example.acer.androidproject01;
  */
 public class Data{
     private static String a ="0";
+   // public static  userx usernow;
 
     public static String getA() {
         return a;

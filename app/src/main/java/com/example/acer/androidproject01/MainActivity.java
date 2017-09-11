@@ -100,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
 
                 RequestBody body = RequestBody.create(JSON, String.valueOf(jsonObject));
                 Request request = new Request.Builder()
-                        .url("http://10.63.219.90:8080/login")
+                       .url("http://10.63.219.90:8080/login")
+ //               .url("http://119.29.55.101:8080/dango/login")
                         .addHeader("Accept", "application/json")
                         .addHeader("Content-Type", "application/json, charset=utf-8")
                         .addHeader("Connection", "close")
@@ -121,8 +122,16 @@ public class MainActivity extends AppCompatActivity {
                         if(!TextUtils.isEmpty(result)) {
                             userx u = new userx();
                             JSONObject obj = new JSONObject(result);
-                            u.access_token = obj.getJSONObject("auth").getString("access_token");
-                            u.needface = obj.getJSONObject("user").getBoolean("needface");
+                           // u.access_token = obj.getJSONObject("auth").getString("access_token");
+                            u.readData();
+                            if (u.access_token.equals(obj.getJSONObject("auth").getString("access_token")))
+                            {}
+                            else {
+                                System.out.println("needface in main:\n"+u.needface+"\n token:\n"+u.access_token+" \n"+obj.getJSONObject("auth").getString("access_token"));
+                                u.access_token = obj.getJSONObject("auth").getString("access_token");
+                                u.needface = obj.getJSONObject("user").getBoolean("needface");
+                            }
+
                             System.out.println("token:" +  u.access_token + ", needface:" + u.needface);
 
                             if(u.access_token!=null) {
@@ -216,162 +225,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    class userx
-    {
-        String user;
-        String auth;
-        String username;
-        String password;
-        boolean needface;
-        String access_token;
-        String refresh_token;
 
-        private void initData() {
-            String filePath= Environment.getExternalStorageDirectory().toString()
-                    + File.separator
-                    +"AppTest"
-                    + File.separator;
-
-            String fileName = "userx.txt";
-            String readtest = "userx.txt";
-            try
-            {
-                readtest=readFile(filePath+fileName);
-            }catch(Exception e){
-                System.out.println("wrong:read file error01");
-                e.printStackTrace();
-
-            }
-
-            deleteFile(filePath+fileName);
-            deleteFile(filePath+fileName+"copy.txt");
-
-
-            writeTxtToFile("access_token:"+userx.this.access_token, filePath, fileName);
-            writeTxtToFile(" "+readtest, filePath, fileName+"copy.txt");
-        }
-
-        private void readData() {
-            String filePath= Environment.getExternalStorageDirectory().toString()
-                    + File.separator
-                    +"AppTest"
-                    + File.separator;
-
-            String fileName = "userx.txt";
-            String readtest = "userx.txt";
-            try
-            {
-                readtest=readFile(filePath+fileName);
-            }catch(Exception e){
-                System.out.println("wrong:read file error01");
-                e.printStackTrace();
-
-            }
-
-            userx.this.access_token=readtest;
-            System.out.println("readtest= "+ readtest );
-
-        }
-
-
-        public String readFile(String fileName) throws IOException{
-            String res="";
-            try{
-               // FileInputStream fin = openFileInput(fileName);
-                FileInputStream fin = new FileInputStream(fileName);
-                int length = fin.available();
-                byte [] buffer = new byte[length];
-                fin.read(buffer);
-                res = EncodingUtils.getString(buffer, "gbk");
-                System.out.println("res:"+res);
-                fin.close();
-            }
-            catch(Exception e){
-                System.out.println("wrong:read file error02");
-                e.printStackTrace();
-            }
-            return res;
-
-        }
-
-        // 将字符串写入到文本文件中
-        public void writeTxtToFile(String strcontent, String filePath, String fileName) {
-            //生成文件夹之后，再生成文件，不然会出错
-            makeFilePath(filePath, fileName);
-
-            String strFilePath = filePath+fileName;
-            // 每次写入时，都换行写
-            String strContent = strcontent + "\r\n";
-            try {
-                File file = new File(strFilePath);
-                if (!file.exists()) {
-                    Log.d("TestFile", "Create the file:" + strFilePath);
-                    file.getParentFile().mkdirs();
-                    file.createNewFile();
-                }
-                RandomAccessFile raf = new RandomAccessFile(file, "rwd");
-                raf.seek(file.length());
-                raf.write(strContent.getBytes());
-                raf.close();
-            } catch (Exception e) {
-                Log.e("TestFile", "Error on write File:" + e);
-            }
-        }
-
-        public boolean deleteFile(String filePath) {
-            File file = new File(filePath);
-            if (file.isFile() && file.exists()) {
-                return file.delete();
-            }
-            return false;
-        }
-
-        // 生成文件
-        public File makeFilePath(String filePath, String fileName) {
-            File file = null;
-            makeRootDirectory(filePath);
-            try {
-                file = new File(filePath + fileName);
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return file;
-        }
-
-        // 生成文件夹
-        public void makeRootDirectory(String filePath) {
-            File file = null;
-            try {
-                file = new File(filePath);
-                if (!file.exists()) {
-                    file.mkdir();
-                }
-            } catch (Exception e) {
-                Log.i("error:", e + "");
-            }
-        }
-
-//        public  void writefilex()
-//        {
-//            String fileName= Environment.getExternalStorageDirectory().toString()
-//                    + File.separator
-//                    +"AppTest"
-//                    + File.separator
-//                    +"userx.txt";
-//            File file=new File(fileName);
-//            if(!file.getParentFile().exists()){
-//                file.getParentFile().mkdir();//创建文件夹
-//                file.createNewFile();
-//            }
-//            RandomAccessFile raf = new RandomAccessFile(file, "rwd");
-//            raf.seek(file.length());
-//            raf.write(userx.this.access_token.getBytes());
-//            raf.close();
-//        }
-    }
 
 
 

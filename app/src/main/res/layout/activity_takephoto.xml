@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -50,46 +50,52 @@
 
     <!--android:text="请保持相机竖直并正面对准轮廓拍照"/>-->
 
-    <Button
+    <!--android:layout_alignParentTop="true" -->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true" -->
+            <!--android:layout_marginLeft="50dp"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--android:layout_marginBottom="100dp"-->
+            <!--android:layout_marginRight="25dp"-->
+            <!--android:gravity="center_vertical|center_horizontal"-->
+
+    <!--<Button-->
+            <!--android:id="@+id/button_capture"-->
+            <!--android:text="Capture"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:onClick="takep"-->
+
+            <!--android:layout_alignParentBottom="true" android:layout_alignLeft="@+id/button_capture"-->
+            <!--android:layout_alignStart="@+id/button_capture"/>-->
+
+
+    <ImageButton
             android:id="@+id/button_capture"
-            android:text="Capture"
+            android:onClick="takep"
+            app:srcCompat="@mipmap/camera"
+            android:background="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:layout_marginRight="117dp" android:layout_marginLeft="117dp"
-            android:layout_marginBottom="20dp"
-            android:layout_alignParentBottom="true"
-            android:onClick="takep"
-            android:gravity="center_horizontal"
-    />
+            android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"/>
     <FrameLayout
             android:id="@+id/camera_preview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:layout_marginLeft="50dp"
+            android:layout_width="250dp"
+            android:layout_height="360dp"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="100dp"
-            android:layout_marginRight="25dp"
             android:gravity="center_horizontal"
-    />
-
-    <ImageView
-            android:id="@+id/image_3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="100dp"
-            android:layout_marginRight="25dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:src="@drawable/image_3"
-            android:theme="@android:style/Theme.Translucent"
-    ></ImageView>
+            android:layout_above="@+id/button_capture" android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp">
+        <ImageView
+                android:id="@+id/image_3"
+                android:layout_gravity="center"
+                android:src="@drawable/image_3"
+                android:theme="@android:style/Theme.Translucent"
+                android:layout_alignTop="@+id/camera_preview" android:layout_centerHorizontal="true"
+                android:layout_width="match_parent" android:layout_height="match_parent"/>
+    </FrameLayout>
 
 
 </RelativeLayout>

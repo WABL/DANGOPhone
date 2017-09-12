@@ -8,6 +8,8 @@ import android.view.View;
 
 public class IndexActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,8 @@ public class IndexActivity extends AppCompatActivity {
         intent.setClass(IndexActivity.this, PayActivity.class);
         startActivity(intent);
     }
+
+
 
 
 }

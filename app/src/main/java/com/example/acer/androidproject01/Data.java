@@ -6,6 +6,7 @@ package com.example.acer.androidproject01;
 public class Data{
     private static String a ="0";
    // public static  userx usernow;
+   public static String mylocalhost ="192.168.43.207";
 
     public static String getA() {
         return a;

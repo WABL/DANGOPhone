@@ -84,18 +84,21 @@
             android:id="@+id/camera_preview"
             android:layout_width="250dp"
             android:layout_height="360dp"
-            android:layout_marginTop="50dp"
             android:gravity="center_horizontal"
-            android:layout_above="@+id/button_capture" android:layout_centerHorizontal="true"
-            android:layout_marginBottom="24dp">
-        <ImageView
-                android:id="@+id/image_3"
-                android:layout_gravity="center"
-                android:src="@drawable/image_3"
-                android:theme="@android:style/Theme.Translucent"
-                android:layout_alignTop="@+id/camera_preview" android:layout_centerHorizontal="true"
-                android:layout_width="match_parent" android:layout_height="match_parent"/>
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="24dp" android:layout_above="@+id/button_capture"
+            android:layout_centerHorizontal="true">
     </FrameLayout>
+    <ImageView
+            android:id="@+id/image_3"
+            android:layout_gravity="center"
+            android:src="@drawable/image_3"
+            android:layout_width="250dp"
+            android:layout_height="360dp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="24dp" android:layout_above="@+id/button_capture"
+            android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>

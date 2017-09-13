@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 import okhttp3.*;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +17,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+
+import static com.example.acer.androidproject01.Data.mylocalhost;
 
 //import org.apache.http.client.fluent.Content;
 //import org.apache.http.client.fluent.Form;
@@ -73,10 +77,22 @@ public class MainActivity extends AppCompatActivity {
         //aandp ="http://10.0.2.2:8080/login?username="+account+"&password="+password;
 
         //sendtest();
-        sendLogInfo(account, password);
+        if (!(boolLength(password)&&boolLength(account)))
+        {
+            Toast.makeText(MainActivity.this, "账号密码长度为空或过长，请重新输入", Toast.LENGTH_LONG).show();
+        }
 
-        showalertdialog(xx);
+        else
+        {
+            sendLogInfo(account, password);
 
+            showalertdialog(xx);
+        }
+    }
+
+    public static boolean boolLength(String str) {
+        Pattern pattern = Pattern.compile(".{1,20}");
+        return pattern.matcher(str).matches();
     }
 
 
@@ -94,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
                 RequestBody body = RequestBody.create(JSON, String.valueOf(jsonObject));
                 Request request = new Request.Builder()
-                       .url("http://localhost:8080/login")
+                       .url("http://"+mylocalhost+":8080/login")
  //               .url("http://119.29.55.101:8080/dango/login")
                         .addHeader("Accept", "application/json")
                         .addHeader("Content-Type", "application/json, charset=utf-8")

@@ -21,6 +21,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
+import static com.example.acer.androidproject01.Data.mylocalhost;
+
 //import static com.example.acer.androidproject01.Data.usernow;
 
 public class SignupActivity extends AppCompatActivity {
@@ -85,7 +87,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 RequestBody body = RequestBody.create(JSON, String.valueOf(jsonObject));
                 Request request = new Request.Builder()
-                        .url("http://localhost:8080/register")
+                        .url("http://"+mylocalhost+":8080/register")
                         .addHeader("Accept", "application/json")
                         .addHeader("Content-Type", "application/json, charset=utf-8")
                         .addHeader("Connection", "close")
